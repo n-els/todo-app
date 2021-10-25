@@ -26,10 +26,25 @@ document.querySelector("#todo-form").addEventListener("submit", function (e){
     e.preventDefault();
     pushToArray(e);
     e.target.todoText.value = "";
+    if (document.querySelector("#hide-tasks").checked) {
+        renderTodos(filterTodos(todos))
+    } else {
     renderTodos(todos)
-    console.log(todos);
+    }
 })
 
+
+document.querySelector("#hide-tasks").addEventListener("change", function (e){
+    if (e.target.checked) {
+        // const undoneTodos = filterTodos(todos)
+        renderTodos(filterTodos(todos));
+    } else {
+        renderTodos(todos)
+    }
+    
+})
+
+// Einträge zum Todo-Array hinzufügen
 const pushToArray = function (e) {
     if (e.target.todoText.value != "") {
         todos.push({title: e.target.todoText.value,
@@ -37,6 +52,7 @@ const pushToArray = function (e) {
     }
 }
 
+// Todo-Einträge generieren und anzeigen
 const renderTodos = function (todos) {
     document.querySelector("#todo-wrapper").innerHTML = "";
     todos.forEach(element => {
@@ -47,4 +63,16 @@ const renderTodos = function (todos) {
     
 };
 
+// Erledigte Todos ausfiltern
+const filterTodos = function (todos) {
+    const undoneTodos = todos.filter(function (todo) {
+        return !todo.completed
+    })
+    return undoneTodos;
+}
+
+console.log(filterTodos(todos));
+
 renderTodos(todos);
+
+console.log(document.querySelector("#hide-tasks").checked);
