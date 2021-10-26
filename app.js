@@ -71,8 +71,6 @@ const filterTodos = function (todos) {
     return undoneTodos;
 }
 
-console.log(filterTodos(todos));
 
 renderTodos(todos);
 
-console.log(document.querySelector("#hide-tasks").checked);
