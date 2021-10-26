@@ -13,5 +13,6 @@
   
 - [x] add Todo
 - [x] hide done Todo's
-- [ ] mark as **"done"** 
+- [ ] mark as **"done"**
+- [ ] store Todo's in LocalStorage
 - [ ] better UI
