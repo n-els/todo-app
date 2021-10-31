@@ -1,26 +1,14 @@
-const todos = [
+let todos = [
     {
-        title: "Do something",
-        completed: false
-
-    },
-    {
-        title: "Meet my friends",
+        title: "try to hide this completed task", 
         completed: true
-
-    },
-    {
-        title: "Purchase and pay something",
-        completed: false
-
-    },
-    {
-        title: "Go to the cinema and watch a nice movie",
-        completed: false
-
-    },
+    }
 ];
 
+const todosJSON = localStorage.getItem("todos");
+if (todosJSON !== null) {
+   todos = JSON.parse(todosJSON);
+}
 
 document.querySelector("#todo-form").addEventListener("submit", function (e){
     e.preventDefault();
@@ -31,6 +19,7 @@ document.querySelector("#todo-form").addEventListener("submit", function (e){
     } else {
     renderTodos(todos)
     }
+    localStorage.setItem("todos", JSON.stringify(todos))
 })
 
 
