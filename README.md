@@ -14,5 +14,6 @@
 - [x] add Todo
 - [x] hide done Todo's
 - [ ] mark as **"done"**
-- [ ] store Todo's in LocalStorage
+- [x] store and load Todo's in/from LocalStorage
+- [ ] clear the list
 - [ ] better UI
